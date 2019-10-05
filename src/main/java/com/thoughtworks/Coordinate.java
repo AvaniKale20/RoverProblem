@@ -13,4 +13,8 @@ public class Coordinate {
     {
         return ((this.yCoordinate==xCoordinate)&&(this.xCoordinate==xCoordinate));
     }
+
+    public boolean isUpper(int xCoordinate, int yCoordinate) {
+        return ((this.xCoordinate>xCoordinate)&&(this.yCoordinate>yCoordinate));
+    }
 }
