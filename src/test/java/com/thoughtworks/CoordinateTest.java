@@ -20,14 +20,24 @@ public class CoordinateTest {
     }
 
     @Test
-    void givenZeroCoordinateAndZeroCoordinate_WhenCheckIsUpperOrNot_ThenShouldReturnTrue() {
+    void givenZeroCoordinateAndZeroCoordinate_WhenCheckIsUpperOrNot_ThenShouldReturnFalse() {
         Coordinate coordinate = new Coordinate(0, 0);
         assertFalse(coordinate.isUpper(1, 1));
     }
 
     @Test
-    void givenOneCoordinateAndOneCoordinate_WhenCheckIsUpperOrNot_ThenShouldReturnTrue() {
+    void givenOneXCoordinateAndOneYCoordinate_WhenCheckIsUpperOrNot_ThenShouldReturnTrue() {
         Coordinate coordinate = new Coordinate(1, 1);
         assertTrue(coordinate.isUpper(0, 0));
+    }
+    @Test
+    void givenOneXCoordinateAndZeroYCoordinate_WhenCheckIsUpperOrNot_ThenShouldReturnFalse() {
+        Coordinate coordinate = new Coordinate(1, 0);
+        assertFalse(coordinate.isUpper(0, 1));
+    }
+    @Test
+    void givenNegativeOneXCoordinateAndNegativeOneYCoordinate_WhenCheckIsBellowOrNot_ThenShouldReturnTrue() {
+        Coordinate coordinate = new Coordinate(-1, -1);
+        assertTrue(coordinate.isBellow(0, 0));
     }
 }

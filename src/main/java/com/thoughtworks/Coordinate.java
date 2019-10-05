@@ -17,4 +17,8 @@ public class Coordinate {
     public boolean isUpper(int xCoordinate, int yCoordinate) {
         return ((this.xCoordinate>xCoordinate)&&(this.yCoordinate>yCoordinate));
     }
+
+    public boolean isBellow(int xCoordinate, int yCoordinate) {
+        return ((this.xCoordinate<xCoordinate)&&(this.yCoordinate<yCoordinate));
+    }
 }
