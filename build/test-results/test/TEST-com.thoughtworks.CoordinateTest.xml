@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.thoughtworks.CoordinateTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-10-05T14:16:06" hostname="Avanis-MacBook-Pro.local" time="0.009">
+<testsuite name="com.thoughtworks.CoordinateTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-10-05T14:28:31" hostname="Avanis-MacBook-Pro.local" time="0.011">
   <properties/>
-  <testcase name="givenOneCoordinateAndOneCoordinate_WhenCheckIsSameOrNot_ThenShouldReturnTrue()" classname="com.thoughtworks.CoordinateTest" time="0.008"/>
-  <testcase name="givenCoordinate_WhenCheckIsSameOrNot_ThenShouldReturnTrue()" classname="com.thoughtworks.CoordinateTest" time="0.0"/>
+  <testcase name="givenZeroCoordinateAndZeroCoordinate_WhenCheckIsUpperOrNot_ThenShouldReturnTrue()" classname="com.thoughtworks.CoordinateTest" time="0.007"/>
+  <testcase name="givenOneCoordinateAndOneCoordinate_WhenCheckIsSameOrNot_ThenShouldReturnTrue()" classname="com.thoughtworks.CoordinateTest" time="0.001"/>
+  <testcase name="givenCoordinate_WhenCheckIsSameOrNot_ThenShouldReturnTrue()" classname="com.thoughtworks.CoordinateTest" time="0.001"/>
+  <testcase name="givenOneCoordinateAndOneCoordinate_WhenCheckIsUpperOrNot_ThenShouldReturnTrue()" classname="com.thoughtworks.CoordinateTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
