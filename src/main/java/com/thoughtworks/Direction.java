@@ -2,5 +2,5 @@ package com.thoughtworks;
 
 public enum Direction {
 
-    North, South
+    North, South,West
 }

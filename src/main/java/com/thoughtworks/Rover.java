@@ -14,6 +14,10 @@ public class Rover {
     public Coordinate moveOneStepAtSouth() {
         return new Coordinate(0, -1);
     }
+
+    public Coordinate moveOneStepAtSWest() {
+        return new Coordinate(-1, 0);
+    }
 }
 
 

@@ -19,4 +19,12 @@ public class RoverTest {
         assertEquals(new Coordinate(0, -1), rover.moveOneStepAtSouth());
 
     }
+
+    @Test
+    void givenRover_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() {
+        Rover rover = new Rover(Direction.West);
+        assertEquals(new Coordinate(-1, 0), rover.moveOneStepAtSWest());
+
+    }
+
 }
