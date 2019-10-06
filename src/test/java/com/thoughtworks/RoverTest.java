@@ -8,8 +8,15 @@ public class RoverTest {
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInNorthDirection() {
-        Rover rover = new Rover();
-        assertEquals(new Coordinate(0, 1), rover.move());
+        Rover rover = new Rover(Direction.North);
+        assertEquals(new Coordinate(0, 1), rover.moveOneStepAtNorth());
+
+    }
+
+    @Test
+    void givenRover_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() {
+        Rover rover = new Rover(Direction.South);
+        assertEquals(new Coordinate(0, -1), rover.moveOneStepAtSouth());
 
     }
 }
