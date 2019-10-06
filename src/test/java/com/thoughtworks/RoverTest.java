@@ -33,5 +33,4 @@ public class RoverTest {
         assertEquals(new Coordinate(1, 0), rover.move());
 
     }
-
 }

@@ -1,6 +1,5 @@
 package com.thoughtworks;
 
-import java.util.Objects;
 
 public class Coordinate {
     private int xCoordinate;
@@ -12,11 +11,6 @@ public class Coordinate {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(xCoordinate, yCoordinate);
-    }
-
-    @Override
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object instanceof Coordinate) {
@@ -24,7 +18,23 @@ public class Coordinate {
             return this.xCoordinate == that.xCoordinate && this.yCoordinate == that.yCoordinate;
         }
         return true;
+    }
 
+
+    public boolean isAbove(Coordinate coordinate) {
+        return (this.yCoordinate > coordinate.yCoordinate);
+    }
+
+    public boolean isBellow(Coordinate coordinate) {
+        return (this.yCoordinate < coordinate.yCoordinate);
+    }
+
+    public boolean isRight(Coordinate coordinate) {
+        return (coordinate.xCoordinate > this.xCoordinate);
+    }
+
+    public boolean isLeft(Coordinate coordinate) {
+        return (coordinate.xCoordinate < this.xCoordinate);
     }
 
     @Override
@@ -34,4 +44,6 @@ public class Coordinate {
                 ", yCoordinate=" + yCoordinate +
                 '}';
     }
+
+
 }
