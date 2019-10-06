@@ -44,9 +44,16 @@ public class RoverTest {
     }
 
     @Test
-    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() {
+    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() {
         Rover rover = new Rover(new Coordinate(1, 0), Direction.East);
         assertEquals(new Coordinate(2, 0), rover.move());
+
+    }
+
+    @Test
+    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() {
+        Rover rover = new Rover(new Coordinate(0, -2), Direction.South);
+        assertEquals(new Coordinate(0, -3), rover.move());
 
     }
 }
