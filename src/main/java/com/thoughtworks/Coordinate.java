@@ -20,21 +20,9 @@ public class Coordinate {
         return true;
     }
 
-
-    public boolean isAbove(Coordinate coordinate) {
-        return (this.yCoordinate > coordinate.yCoordinate);
-    }
-
-    public boolean isBellow(Coordinate coordinate) {
-        return (this.yCoordinate < coordinate.yCoordinate);
-    }
-
-    public boolean isRight(Coordinate coordinate) {
-        return (coordinate.xCoordinate > this.xCoordinate);
-    }
-
-    public boolean isLeft(Coordinate coordinate) {
-        return (coordinate.xCoordinate < this.xCoordinate);
+    //Addition
+    public Coordinate move(Direction direction) {
+        return new Coordinate(xCoordinate + direction.move().xCoordinate, yCoordinate + direction.move().yCoordinate);
     }
 
     @Override
