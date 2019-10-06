@@ -34,6 +34,7 @@ public class RoverTest {
         assertEquals(new Coordinate(1, 0), rover.move());
 
     }
+
     //////
     @Test
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInNorthDirection() {
@@ -42,10 +43,10 @@ public class RoverTest {
 
     }
 
-//    @Test
-//    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() {
-//        Rover rover = new Rover(new Coordinate(1, 0), Direction.East);
-//        assertEquals(new Coordinate(2, 0), rover.move());
-//
-//    }
+    @Test
+    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() {
+        Rover rover = new Rover(new Coordinate(1, 0), Direction.East);
+        assertEquals(new Coordinate(2, 0), rover.move());
+
+    }
 }
