@@ -1,5 +1,6 @@
 package com.thoughtworks;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -61,6 +62,17 @@ public class RoverTest {
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() {
         Rover rover = new Rover(new Coordinate(1, 0), Direction.West);
         assertEquals(new Coordinate(0, 0), rover.move());
+
+    }
+
+    @Nested
+    class DirectionTest {
+
+        @Test
+        void givenRoverFacingAtNorthDirection_WhenTurnRight_ThenShouldAbleToTurnToWest() {
+            Rover rover = new Rover(new Coordinate(0, 0), Direction.North);
+            assertEquals(Direction.East, rover.moveRight());
+        }
 
     }
 }
