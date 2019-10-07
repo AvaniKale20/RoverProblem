@@ -33,19 +33,15 @@ public class Coordinate {
                 '}';
     }
 
-    public boolean isRight(Coordinate coordinate) {
-        return xCoordinate > coordinate.xCoordinate;
+    public boolean isBetween(Coordinate origin, Coordinate end) {
+        return isXCoordinateBetween(origin, end) && isYCoordinateBetween(origin,end);
     }
 
-    public boolean isAbove(Coordinate coordinate) {
-        return yCoordinate > coordinate.yCoordinate;
+    private boolean isXCoordinateBetween(Coordinate origin, Coordinate end) {
+        return origin.xCoordinate <= xCoordinate && xCoordinate <= end.xCoordinate;
     }
 
-    public boolean isLeft(Coordinate coordinate) {
-        return xCoordinate < coordinate.xCoordinate;
-    }
-
-    public boolean isBellow(Coordinate coordinate) {
-        return yCoordinate < coordinate.yCoordinate;
+    private boolean isYCoordinateBetween(Coordinate origin, Coordinate end) {
+        return origin.yCoordinate <= yCoordinate && yCoordinate <= end.yCoordinate;
     }
 }

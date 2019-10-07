@@ -9,19 +9,7 @@ public class Plateau {
         this.end = end;
     }
 
-    public boolean hasWithingBound(Coordinate coordinate) {
-        if (coordinate.isRight(origin)) {
-            return true;
-        }
-        if (coordinate.isAbove(origin)) {
-            return true;
-        }
-        if (coordinate.isLeft(origin)) {
-            return false;
-        }
-        if (coordinate.isBellow(origin)) {
-
-        }
-        return false;
+    public boolean hasWithinBound(Coordinate coordinate) {
+        return coordinate.isBetween(origin, end);
     }
 }

@@ -6,33 +6,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CoordinateTest {
 
-    @Test
-    void givenOneAndOneCoordinate_WhenCheckIsRight_ThenReturnFalse() {
-        Coordinate coordinate = new Coordinate(0, 0);
-        assertFalse(coordinate.isRight(new Coordinate(1, 1)));
+    // TODO - remove duplication
+    private Coordinate getOrigin() {
+        return new Coordinate(0, 0);
+    }
+
+    private Coordinate getFourFour() {
+        return new Coordinate(4, 4);
     }
 
     @Test
-    void givenOneAndZeroCoordinate_WhenCheckIsRight_ThenReturnTrue() {
-        Coordinate coordinate = new Coordinate(1, 0);
-        assertTrue(coordinate.isRight(new Coordinate(0, 0)));
+    void someTest() {
+        assertTrue(new Coordinate(1, 0).isBetween(getOrigin(), getFourFour()));
     }
 
-    @Test
-    void givenOneAndOneCoordinate_WhenCheckIsAbove_ThenReturnFalse() {
-        Coordinate coordinate = new Coordinate(0, 1);
-        assertTrue(coordinate.isAbove(new Coordinate(0, 0)));
-    }
-
-    @Test
-    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsLeft_ThenReturnFalse() {
-        Coordinate coordinate = new Coordinate(-1, 0);
-        assertTrue(coordinate.isLeft(new Coordinate(0, 0)));
-    }
-
-    @Test
-    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsBellow_ThenReturnFalse() {
-        Coordinate coordinate = new Coordinate(-1, 0);
-        assertFalse(coordinate.isBellow(new Coordinate(0, 0)));
-    }
 }
