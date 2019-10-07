@@ -72,51 +72,70 @@ public class RoverTest {
             return new Coordinate(0, 0);
         }
 
+        private Direction getRoverFacingNorth() {
+            return Direction.North;
+        }
+
+        private Direction getRoverFacingWest() {
+            return Direction.West;
+        }
+
+        private Direction getRoverFacingSouth() {
+            return Direction.South;
+        }
+
+        private Direction getRoverFacingEast() {
+            return Direction.East;
+        }
+
+
         @Test
         void givenRoverFacingAtNorthDirection_WhenTurnRight_ThenShouldAbleToTurnToEast() {
-            Rover rover = new Rover(getOrigin(), Direction.North);
+            Rover rover = new Rover(getOrigin(), getRoverFacingNorth());
             assertEquals(Direction.East, rover.turnRight());
         }
 
         @Test
         void givenRoverFacingAtNorthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest() {
-            Rover rover = new Rover(getOrigin(), Direction.North);
+            Rover rover = new Rover(getOrigin(), getRoverFacingNorth());
             assertEquals(Direction.West, rover.turnLeft());
         }
 
+
         @Test
         void givenRoverFacingAtSouthDirection_WhenTurnLeft_ThenShouldAbleToTurnToEast() {
-            Rover rover = new Rover(getOrigin(), Direction.South);
+            Rover rover = new Rover(getOrigin(), getRoverFacingSouth());
             assertEquals(Direction.East, rover.turnLeft());
         }
 
         @Test
         void givenRoverFacingAtSouthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest() {
-            Rover rover = new Rover(getOrigin(), Direction.South);
+            Rover rover = new Rover(getOrigin(), getRoverFacingSouth());
             assertEquals(Direction.West, rover.turnRight());
         }
 
+
         @Test
         void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToSouth() {
-            Rover rover = new Rover(getOrigin(), Direction.East);
+            Rover rover = new Rover(getOrigin(), getRoverFacingEast());
             assertEquals(Direction.South, rover.turnRight());
         }
 
         @Test
         void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth() {
-            Rover rover = new Rover(getOrigin(), Direction.East);
-            assertEquals(Direction.North, rover.turnLeft());
+            Rover rover = new Rover(getOrigin(), getRoverFacingEast());
+            assertEquals(getRoverFacingNorth(), rover.turnLeft());
         }
 
         @Test
         void givenRoverFacingAtWestDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth() {
-            Rover rover = new Rover(getOrigin(), Direction.West);
-            assertEquals(Direction.North, rover.turnRight());
+            Rover rover = new Rover(getOrigin(), getRoverFacingWest());
+            assertEquals(getRoverFacingNorth(), rover.turnRight());
         }
 
         @Test
         void givenRoverFacingAtWestDirection_WhenTurnLeft_ThenShouldAbleToTurnToSouth() {
-            Rover rover = new Rover(getOrigin(), Direction.West);
+            Rover rover = new Rover(getOrigin(), getRoverFacingWest());
             assertEquals(Direction.South, rover.turnLeft());
         }
     }
