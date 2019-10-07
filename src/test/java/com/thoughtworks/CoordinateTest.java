@@ -16,7 +16,7 @@ public class CoordinateTest {
     }
 
     @Test
-    void someTest() {
+    void givenOneXCoordinateAndZeroYCoordinate_WhenCheckIsBetween_ThenReturnTrue() {
         assertTrue(new Coordinate(1, 0).isBetween(getOrigin(), getFourFour()));
     }
 
