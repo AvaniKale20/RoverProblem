@@ -20,13 +20,19 @@ public class CoordinateTest {
 
     @Test
     void givenOneAndOneCoordinate_WhenCheckIsAbove_ThenReturnFalse() {
-        Coordinate coordinate = new Coordinate(0, 0);
-        assertFalse(coordinate.isAbove(new Coordinate(0, 1)));
+        Coordinate coordinate = new Coordinate(0, 1);
+        assertTrue(coordinate.isAbove(new Coordinate(0, 0)));
     }
-    @Test
-    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsAbove_ThenReturnFalse() {
-        Coordinate coordinate = new Coordinate(0, 0);
-        assertFalse(coordinate.isLeft(new Coordinate(-1, 0)));
-    }
+
+//    @Test
+//    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsAbove_ThenReturnFalse() {
+//        Coordinate coordinate = new Coordinate(0, 0);
+//        assertFalse(coordinate.isLeft(new Coordinate(-1, 0)));
+//    }
 //
+//    @Test
+//    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsAbove_ThenReturnFalse() {
+//        Coordinate coordinate = new Coordinate(0, 0);
+//        assertFalse(coordinate.isLeft(new Coordinate(-1, 0)));
+//    }
 }
