@@ -38,10 +38,14 @@ public class Coordinate {
     }
 
     public boolean isAbove(Coordinate coordinate) {
-        return  yCoordinate>coordinate.yCoordinate;
+        return yCoordinate > coordinate.yCoordinate;
     }
 
     public boolean isLeft(Coordinate coordinate) {
-        return xCoordinate<coordinate.xCoordinate;
+        return xCoordinate < coordinate.xCoordinate;
+    }
+
+    public boolean isBellow(Coordinate coordinate) {
+        return yCoordinate < coordinate.yCoordinate;
     }
 }

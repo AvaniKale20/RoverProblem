@@ -16,6 +16,12 @@ public class Plateau {
         if (coordinate.isAbove(origin)) {
             return true;
         }
-        return coordinate.isLeft(origin);
+        if (coordinate.isLeft(origin)) {
+            return false;
+        }
+        if (coordinate.isBellow(origin)) {
+
+        }
+        return false;
     }
 }

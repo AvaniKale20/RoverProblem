@@ -24,15 +24,15 @@ public class CoordinateTest {
         assertTrue(coordinate.isAbove(new Coordinate(0, 0)));
     }
 
-//    @Test
-//    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsAbove_ThenReturnFalse() {
-//        Coordinate coordinate = new Coordinate(0, 0);
-//        assertFalse(coordinate.isLeft(new Coordinate(-1, 0)));
-//    }
-//
-//    @Test
-//    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsAbove_ThenReturnFalse() {
-//        Coordinate coordinate = new Coordinate(0, 0);
-//        assertFalse(coordinate.isLeft(new Coordinate(-1, 0)));
-//    }
+    @Test
+    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsLeft_ThenReturnFalse() {
+        Coordinate coordinate = new Coordinate(-1, 0);
+        assertTrue(coordinate.isLeft(new Coordinate(0, 0)));
+    }
+
+    @Test
+    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsBellow_ThenReturnFalse() {
+        Coordinate coordinate = new Coordinate(-1, 0);
+        assertFalse(coordinate.isBellow(new Coordinate(0, 0)));
+    }
 }
