@@ -2,8 +2,8 @@ package com.thoughtworks;
 
 
 public class Coordinate {
-    private int xCoordinate;
-    private int yCoordinate;
+    protected int xCoordinate;
+    protected int yCoordinate;
 
     public Coordinate(int x_Coordinate, int y_Coordinate) {
         this.yCoordinate = y_Coordinate;
