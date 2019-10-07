@@ -71,25 +71,31 @@ public class RoverTest {
         @Test
         void givenRoverFacingAtNorthDirection_WhenTurnRight_ThenShouldAbleToTurnToEast() {
             Rover rover = new Rover(new Coordinate(0, 0), Direction.North);
-            assertEquals(Direction.East, rover.moveRight());
+            assertEquals(Direction.East, rover.turnRight());
         }
 
         @Test
         void givenRoverFacingAtNorthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest() {
             Rover rover = new Rover(new Coordinate(0, 0), Direction.North);
-            assertEquals(Direction.West, rover.moveLeft());
+            assertEquals(Direction.West, rover.turnLeft());
         }
 
         @Test
         void givenRoverFacingAtSouthDirection_WhenTurnLeft_ThenShouldAbleToTurnToEast() {
             Rover rover = new Rover(new Coordinate(0, 0), Direction.South);
-            assertEquals(Direction.East, rover.moveLeft());
+            assertEquals(Direction.East, rover.turnLeft());
         }
 
         @Test
         void givenRoverFacingAtSouthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest() {
             Rover rover = new Rover(new Coordinate(0, 0), Direction.South);
-            assertEquals(Direction.West, rover.moveRight());
+            assertEquals(Direction.West, rover.turnRight());
+        }
+
+        @Test
+        void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToSouth() {
+            Rover rover = new Rover(new Coordinate(0, 0), Direction.East);
+            assertEquals(Direction.South, rover.turnRight());
         }
     }
 }
