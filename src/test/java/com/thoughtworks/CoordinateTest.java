@@ -23,5 +23,10 @@ public class CoordinateTest {
         Coordinate coordinate = new Coordinate(0, 0);
         assertFalse(coordinate.isAbove(new Coordinate(0, 1)));
     }
-
+    @Test
+    void givenNegativeOneXCoordinateAndZeroCoordinate_WhenCheckIsAbove_ThenReturnFalse() {
+        Coordinate coordinate = new Coordinate(0, 0);
+        assertFalse(coordinate.isLeft(new Coordinate(-1, 0)));
+    }
+//
 }
