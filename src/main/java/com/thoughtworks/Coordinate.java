@@ -33,5 +33,7 @@ public class Coordinate {
                 '}';
     }
 
-
+    public boolean isRight(Coordinate coordinate) {
+        return xCoordinate > coordinate.xCoordinate;
+    }
 }
