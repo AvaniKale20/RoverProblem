@@ -10,6 +10,12 @@ public class Plateau {
     }
 
     public boolean hasWithingBound(Coordinate coordinate) {
-        return coordinate.yCoordinate > origin.yCoordinate && coordinate.yCoordinate < end.yCoordinate;
+        if (coordinate.yCoordinate > origin.yCoordinate && coordinate.yCoordinate < end.yCoordinate) {
+            return true;
+        }
+        if (coordinate.yCoordinate < origin.yCoordinate && coordinate.yCoordinate < end.yCoordinate) {
+            return false;
+        }
+        return false;
     }
 }

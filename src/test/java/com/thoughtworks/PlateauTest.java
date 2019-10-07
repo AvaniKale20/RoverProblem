@@ -14,4 +14,11 @@ public class PlateauTest {
         assertTrue(plateau.hasWithingBound(new Coordinate(0, 1)));
     }
 
+    @Test
+    void givenRoverWithZeroXCoordinateAndNegativeOnYCoordinate_whenCheckIsWithinPlateau_ThenReturnTrue() {
+        Coordinate origin = new Coordinate(0, 0);
+        Coordinate end = new Coordinate(4, 4);
+        Plateau plateau = new Plateau(origin, end);
+        assertFalse(plateau.hasWithingBound(new Coordinate(0, -1)));
+    }
 }
