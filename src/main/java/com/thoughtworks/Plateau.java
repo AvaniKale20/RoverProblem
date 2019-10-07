@@ -19,6 +19,9 @@ public class Plateau {
         if (coordinate.xCoordinate > origin.xCoordinate && coordinate.xCoordinate < end.xCoordinate) {
             return true;
         }
+        if (coordinate.xCoordinate < origin.xCoordinate && coordinate.xCoordinate < end.xCoordinate) {
+            return false;
+        }
         return false;
     }
 }
