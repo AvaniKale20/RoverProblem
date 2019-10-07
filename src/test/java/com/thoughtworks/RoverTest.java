@@ -69,10 +69,15 @@ public class RoverTest {
     class DirectionTest {
 
         @Test
-        void givenRoverFacingAtNorthDirection_WhenTurnRight_ThenShouldAbleToTurnToWest() {
+        void givenRoverFacingAtNorthDirection_WhenTurnRight_ThenShouldAbleToTurnToEast() {
             Rover rover = new Rover(new Coordinate(0, 0), Direction.North);
             assertEquals(Direction.East, rover.moveRight());
         }
 
+        @Test
+        void givenRoverFacingAtNorthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest() {
+            Rover rover = new Rover(new Coordinate(0, 0), Direction.North);
+            assertEquals(Direction.West, rover.moveLeft());
+        }
     }
 }
