@@ -15,27 +15,28 @@ public class PlateauTest {
         return new Coordinate(4, 4);
     }
 
-//    @Test
-//    void givenRover_whenCheckIsWithinPlateau_ThenReturnTrue() {
-//        Plateau plateau = new Plateau(getOrigin(), getEnd());
-//        assertTrue(plateau.hasWithingBound(new Coordinate(0, 1)));
-//    }
-//
-//    @Test
-//    void givenRoverWithZeroXCoordinateAndNegativeOnYCoordinate_whenCheckIsWithinPlateau_ThenReturnFalse() {
-//        Plateau plateau = new Plateau(getOrigin(), getEnd());
-//        assertFalse(plateau.hasWithingBound(new Coordinate(0, -1)));
-//    }
-//
-//    @Test
-//    void givenRoverWithOneXCoordinateAndZeroYCoordinate_whenCheckIsWithinPlateau_ThenReturnTrue() {
-//        Plateau plateau = new Plateau(getOrigin(), getEnd());
-//        assertTrue(plateau.hasWithingBound(new Coordinate(1, 0)));
-//    }
-//
-//    @Test
-//    void givenRoverWithNegativeOneXCoordinateAndZeroYCoordinate_whenCheckIsWithinPlateau_ThenReturnFalse() {
-//        Plateau plateau = new Plateau(getOrigin(), getEnd());
-//        assertFalse(plateau.hasWithingBound(new Coordinate(-1, 0)));
-//    }
+    @Test
+    void givenRoverWithOneXCoordinateAndZeroYCoordinate_whenCheckIsWithinPlateau_ThenReturnTrue() {
+        Plateau plateau = new Plateau(getOrigin(), getEnd());
+        assertTrue(plateau.hasWithingBound(new Coordinate(1, 0)));
+    }
+
+    @Test
+    void givenRover_whenCheckIsWithinPlateau_ThenReturnTrue() {
+        Plateau plateau = new Plateau(getOrigin(), getEnd());
+        assertTrue(plateau.hasWithingBound(new Coordinate(0, 1)));
+    }
+
+    @Test
+    void givenRoverWithZeroXCoordinateAndNegativeOnYCoordinate_whenCheckIsWithinPlateau_ThenReturnFalse() {
+        Plateau plateau = new Plateau(getOrigin(), getEnd());
+        assertFalse(plateau.hasWithingBound(new Coordinate(0, -1)));
+    }
+
+
+    @Test
+    void givenRoverWithNegativeOneXCoordinateAndZeroYCoordinate_whenCheckIsWithinPlateau_ThenReturnFalse() {
+        Plateau plateau = new Plateau(getOrigin(), getEnd());
+        assertFalse(plateau.hasWithingBound(new Coordinate(-1, 0)));
+    }
 }

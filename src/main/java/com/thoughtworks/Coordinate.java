@@ -36,4 +36,8 @@ public class Coordinate {
     public boolean isRight(Coordinate coordinate) {
         return xCoordinate > coordinate.xCoordinate;
     }
+
+    public boolean isAbove(Coordinate coordinate) {
+        return  yCoordinate>coordinate.yCoordinate;
+    }
 }
