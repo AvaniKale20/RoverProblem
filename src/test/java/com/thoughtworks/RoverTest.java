@@ -97,5 +97,10 @@ public class RoverTest {
             Rover rover = new Rover(new Coordinate(0, 0), Direction.East);
             assertEquals(Direction.South, rover.turnRight());
         }
+        @Test
+        void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth() {
+            Rover rover = new Rover(new Coordinate(0, 0), Direction.East);
+            assertEquals(Direction.North, rover.turnLeft());
+        }
     }
 }
