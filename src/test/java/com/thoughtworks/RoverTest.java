@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RoverTest {
     private Coordinate getOrigin() {
@@ -76,6 +77,14 @@ public class RoverTest {
 
     }
 
+//    @Test
+//    void givenRover_WhenMove_ThenShouldThrowException() throws RoverDeadException {
+//        Plateau plateau = new Plateau(getOrigin(), getFourFour());
+//        Rover rover = new Rover(new Coordinate(0, 4), Direction.North, plateau);
+//        assertEquals(new Coordinate(0, 5), rover.move());
+//
+//    }
+
 
     @Nested
     class DirectionTest {
@@ -124,7 +133,7 @@ public class RoverTest {
 
 
         @Test
-        void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToSouth() throws Exception   {
+        void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToSouth() throws Exception {
             Rover rover = new Rover(getOrigin(), getRoverFacingEast());
             assertEquals(Direction.South, rover.turnRight());
         }
@@ -136,7 +145,7 @@ public class RoverTest {
         }
 
         @Test
-        void givenRoverFacingAtWestDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth() throws Exception  {
+        void givenRoverFacingAtWestDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth() throws Exception {
             Rover rover = new Rover(getOrigin(), getRoverFacingWest());
             assertEquals(getRoverFacingNorth(), rover.turnRight());
         }

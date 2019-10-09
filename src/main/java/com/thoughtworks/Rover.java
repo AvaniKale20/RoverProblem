@@ -2,6 +2,9 @@ package com.thoughtworks;
 
 import com.thoughtworks.exception.RoverDeadException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Rover {
     private Direction direction;
     private Coordinate coordinate;
@@ -18,7 +21,6 @@ public class Rover {
         this.direction = direction;
         this.coordinate = coordinate;
     }
-
     public Coordinate move() throws RoverDeadException {
         Coordinate newCoordinate = coordinate.move(direction);
         if (plateau.hasOutOfBound(newCoordinate)) {

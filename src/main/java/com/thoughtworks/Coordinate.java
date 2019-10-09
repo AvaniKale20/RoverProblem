@@ -47,11 +47,7 @@ public class Coordinate {
 
     ///////
     public boolean isOutSide(Coordinate origin, Coordinate end) {
-        return isXCoordinateOutSide(origin, end) && isYCoordinateOutSide(origin, end);
-    }
-
-    public boolean isLeft(Coordinate origin, Coordinate end) {
-        return isXCoordinateOutSide(origin, end);
+        return isXCoordinateOutSide(origin, end) || isYCoordinateOutSide(origin, end);
     }
 
     private boolean isYCoordinateOutSide(Coordinate origin, Coordinate end) {

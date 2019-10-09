@@ -25,4 +25,15 @@ public class CoordinateTest {
         assertTrue(new Coordinate(5, 5).isOutSide(getOrigin(), getFourFour()));
     }
 
+    @Test
+    void givenFIveXCoordinateAndZeroYCoordinate_WhenCheckIsOutSide_ThenReturnTrue() {
+        assertTrue(new Coordinate(5, 0).isOutSide(getOrigin(), getFourFour()));
+    }
+
+    @Test
+    void givenFiveYCoordinateAndZeroXCoordinate_WhenCheckIsOutSide_ThenReturnTrue() {
+        assertTrue(new Coordinate(0, 5).isOutSide(getOrigin(), getFourFour()));
+
+    }
+
 }
