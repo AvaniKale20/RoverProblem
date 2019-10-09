@@ -50,12 +50,18 @@ public class Coordinate {
         return isXCoordinateOutSide(origin, end) && isYCoordinateOutSide(origin, end);
     }
 
+    public boolean isLeft(Coordinate origin, Coordinate end) {
+        return isXCoordinateOutSide(origin, end);
+    }
+
     private boolean isYCoordinateOutSide(Coordinate origin, Coordinate end) {
-        return origin.yCoordinate <yCoordinate&& yCoordinate>end.yCoordinate;
+        return origin.yCoordinate < yCoordinate && yCoordinate > end.yCoordinate;
 
     }
 
     private boolean isXCoordinateOutSide(Coordinate origin, Coordinate end) {
-        return origin.xCoordinate <xCoordinate&& xCoordinate>end.xCoordinate;
+        return origin.xCoordinate < xCoordinate && xCoordinate > end.xCoordinate;
     }
+
+
 }

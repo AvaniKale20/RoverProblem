@@ -6,6 +6,7 @@ public class Rover {
     private Direction direction;
     private Coordinate coordinate;
     private Plateau plateau;
+    private boolean isDead = false;
 
     public Rover(Coordinate coordinate, Direction direction, Plateau plateau) {
         this.direction = direction;
@@ -21,12 +22,16 @@ public class Rover {
     public Coordinate move() throws RoverDeadException {
         Coordinate newCoordinate = coordinate.move(direction);
         if (plateau.hasOutOfBound(newCoordinate)) {
+            isDead = true;
             throw new RoverDeadException();
         }
         return coordinate.move(direction);
     }
 
-    public Direction turnLeft() {
+    public Direction turnLeft() throws RoverDeadException {
+        if(isDead) {
+            throw new RoverDeadException();
+        }
         return direction.moveLeft();
     }
 

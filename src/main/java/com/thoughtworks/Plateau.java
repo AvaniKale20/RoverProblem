@@ -13,8 +13,8 @@ public class Plateau {
     public boolean hasWithinBound(Coordinate coordinate) {
         return coordinate.isBetween(origin, end);
     }
-    public boolean hasOutOfBound(Coordinate coordinate)
-    {
-        return coordinate.isOutSide(origin,end);
+
+    public boolean hasOutOfBound(Coordinate coordinate) {
+        return coordinate.isOutSide(origin, end);
     }
 }

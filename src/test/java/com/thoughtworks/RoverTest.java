@@ -10,9 +10,9 @@ public class RoverTest {
     private Coordinate getOrigin() {
         return new Coordinate(0, 0);
     }
-    private Coordinate getFourFour()
-    {
-        return new Coordinate(4,4);
+
+    private Coordinate getFourFour() {
+        return new Coordinate(4, 4);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class RoverTest {
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws RoverDeadException {
-        Plateau plateau = new Plateau(getOrigin(),getFourFour());
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.East, plateau);
         assertEquals(new Coordinate(1, 0), rover.move());
     }
@@ -70,7 +70,7 @@ public class RoverTest {
 
     @Test
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() throws RoverDeadException {
-        Plateau plateau = new Plateau(getOrigin(),getFourFour());
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 0), Direction.West, plateau);
         assertEquals(new Coordinate(0, 0), rover.move());
 
@@ -98,53 +98,55 @@ public class RoverTest {
 
 
         @Test
-        void givenRoverFacingAtNorthDirection_WhenTurnRight_ThenShouldAbleToTurnToEast() {
+        void givenRoverFacingAtNorthDirection_WhenTurnRight_ThenShouldAbleToTurnToEast()  {
             Rover rover = new Rover(getOrigin(), getRoverFacingNorth());
             assertEquals(Direction.East, rover.turnRight());
         }
 
         @Test
-        void givenRoverFacingAtNorthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest() {
+        void givenRoverFacingAtNorthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest() throws Exception {
             Rover rover = new Rover(getOrigin(), getRoverFacingNorth());
             assertEquals(Direction.West, rover.turnLeft());
         }
 
 
         @Test
-        void givenRoverFacingAtSouthDirection_WhenTurnLeft_ThenShouldAbleToTurnToEast() {
+        void givenRoverFacingAtSouthDirection_WhenTurnLeft_ThenShouldAbleToTurnToEast() throws Exception {
             Rover rover = new Rover(getOrigin(), getRoverFacingSouth());
             assertEquals(Direction.East, rover.turnLeft());
         }
 
         @Test
-        void givenRoverFacingAtSouthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest() {
+        void givenRoverFacingAtSouthDirection_WhenTurnLeft_ThenShouldAbleToTurnToWest()  {
             Rover rover = new Rover(getOrigin(), getRoverFacingSouth());
             assertEquals(Direction.West, rover.turnRight());
         }
 
 
         @Test
-        void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToSouth() {
+        void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToSouth()   {
             Rover rover = new Rover(getOrigin(), getRoverFacingEast());
             assertEquals(Direction.South, rover.turnRight());
         }
 
         @Test
-        void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth() {
+        void givenRoverFacingAtEastDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth() throws Exception {
             Rover rover = new Rover(getOrigin(), getRoverFacingEast());
             assertEquals(getRoverFacingNorth(), rover.turnLeft());
         }
 
         @Test
-        void givenRoverFacingAtWestDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth() {
+        void givenRoverFacingAtWestDirection_WhenTurnRight_ThenShouldAbleToTurnToNorth()  {
             Rover rover = new Rover(getOrigin(), getRoverFacingWest());
             assertEquals(getRoverFacingNorth(), rover.turnRight());
         }
 
         @Test
-        void givenRoverFacingAtWestDirection_WhenTurnLeft_ThenShouldAbleToTurnToSouth() {
+        void givenRoverFacingAtWestDirection_WhenTurnLeft_ThenShouldAbleToTurnToSouth() throws Exception {
             Rover rover = new Rover(getOrigin(), getRoverFacingWest());
             assertEquals(Direction.South, rover.turnLeft());
         }
+
+
     }
 }
