@@ -185,7 +185,15 @@ class DirectionTest {
 //    assertEquals(Direction.East, rover.turnRight());
     }
 
+    @Test
+    void givenRoverFacingAtEastDirection_WhenTurnLeft_ThenTurnNorth() throws RoverDeadException {
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
+        Rover rover = new Rover(new Coordinate(0, 4), Direction.North, plateau);
+        assertThrows(RoverDeadException.class, rover::move);
 
+        assertThrows(RoverDeadException.class, rover::turnRight);
+//    assertEquals(Direction.North, rover.turnLeft());
+    }
 
 }
 
