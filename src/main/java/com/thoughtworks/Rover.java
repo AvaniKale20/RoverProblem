@@ -29,14 +29,17 @@ public class Rover {
     }
 
     public Direction turnLeft() throws RoverDeadException {
-        if(isDead) {
+        if (isDead) {
             throw new RoverDeadException();
         }
         return direction.moveLeft();
     }
 
 
-    public Direction turnRight() {
+    public Direction turnRight() throws RoverDeadException {
+        if (isDead) {
+            throw new RoverDeadException();
+        }
         return direction.moveRight();
     }
 
