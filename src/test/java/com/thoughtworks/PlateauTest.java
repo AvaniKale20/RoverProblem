@@ -38,4 +38,10 @@ public class PlateauTest {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         assertFalse(plateau.hasWithinBound(new Coordinate(-1, 0)));
     }
+
+    @Test
+    void givenRoverWithFiveXCoordinateAndFiveYCoordinate_WhenCheckHasOutOfBound_ThenReturnTrue() {
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
+        assertTrue(plateau.hasOutOfBound(new Coordinate(5, 5)));
+    }
 }
