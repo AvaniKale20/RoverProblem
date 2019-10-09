@@ -20,4 +20,9 @@ public class CoordinateTest {
         assertTrue(new Coordinate(1, 0).isBetween(getOrigin(), getFourFour()));
     }
 
+    @Test
+    void givenNegativeOneXCoordinateAndZeroYCoordinate_WhenCheckIsOutSide_ThenReturnTrue() {
+        assertTrue(new Coordinate(5, 5).isOutSide(getOrigin(), getFourFour()));
+    }
+
 }

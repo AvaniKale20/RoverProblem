@@ -34,7 +34,7 @@ public class Coordinate {
     }
 
     public boolean isBetween(Coordinate origin, Coordinate end) {
-        return isXCoordinateBetween(origin, end) && isYCoordinateBetween(origin,end);
+        return isXCoordinateBetween(origin, end) && isYCoordinateBetween(origin, end);
     }
 
     private boolean isXCoordinateBetween(Coordinate origin, Coordinate end) {
@@ -43,5 +43,19 @@ public class Coordinate {
 
     private boolean isYCoordinateBetween(Coordinate origin, Coordinate end) {
         return origin.yCoordinate <= yCoordinate && yCoordinate <= end.yCoordinate;
+    }
+
+    ///////
+    public boolean isOutSide(Coordinate origin, Coordinate end) {
+        return isXCoordinateOutSide(origin, end) && isYCoordinateOutSide(origin, end);
+    }
+
+    private boolean isYCoordinateOutSide(Coordinate origin, Coordinate end) {
+        return origin.yCoordinate <yCoordinate&& yCoordinate>end.yCoordinate;
+
+    }
+
+    private boolean isXCoordinateOutSide(Coordinate origin, Coordinate end) {
+        return origin.xCoordinate <xCoordinate&& xCoordinate>end.xCoordinate;
     }
 }

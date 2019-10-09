@@ -9,13 +9,15 @@ public class Rover {
         this.coordinate = coordinate;
     }
 
-    public Coordinate move() {
+    public Coordinate move()
+    {
         return coordinate.move(direction);
     }
 
     public Direction turnLeft() {
         return direction.moveLeft();
     }
+
 
     public Direction turnRight() {
         return direction.moveRight();

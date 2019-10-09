@@ -1,8 +1,12 @@
 package com.thoughtworks;
 
+
+import com.thoughtworks.exception.RoverDeadException;
+
 public class Plateau {
     private Coordinate origin;
     private Coordinate end;
+    private Rover rover;
 
     public Plateau(Coordinate origin, Coordinate end) {
         this.origin = origin;
@@ -11,5 +15,9 @@ public class Plateau {
 
     public boolean hasWithinBound(Coordinate coordinate) {
         return coordinate.isBetween(origin, end);
+    }
+    public boolean hasOutOfBound(Coordinate coordinate)
+    {
+        return coordinate.isOutSide(origin,end);
     }
 }
