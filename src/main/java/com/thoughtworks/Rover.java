@@ -1,16 +1,28 @@
 package com.thoughtworks;
 
-public class Rover {
-    Direction direction;
-    Coordinate coordinate;
+import com.thoughtworks.exception.RoverDeadException;
 
-    public Rover(Coordinate coordinate, Direction direction) {
+public class Rover {
+    private Direction direction;
+    private Coordinate coordinate;
+    private Plateau plateau;
+
+    public Rover(Coordinate coordinate, Direction direction, Plateau plateau) {
+        this.direction = direction;
+        this.coordinate = coordinate;
+        this.plateau = plateau;
+    }
+
+    Rover(Coordinate coordinate, Direction direction) {
         this.direction = direction;
         this.coordinate = coordinate;
     }
 
-    public Coordinate move()
-    {
+    public Coordinate move() throws RoverDeadException {
+        Coordinate newCoordinate = coordinate.move(direction);
+        if (plateau.hasOutOfBound(newCoordinate)) {
+            throw new RoverDeadException();
+        }
         return coordinate.move(direction);
     }
 
