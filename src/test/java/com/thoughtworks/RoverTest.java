@@ -77,14 +77,15 @@ public class RoverTest {
 
     }
 
-//    @Test
-//    void givenRover_WhenMove_ThenShouldThrowException() throws RoverDeadException {
-//        Plateau plateau = new Plateau(getOrigin(), getFourFour());
-//        Rover rover = new Rover(new Coordinate(0, 4), Direction.North, plateau);
+    @Test
+    void givenRover_WhenMove_ThenShouldThrowException() {
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
+        Rover rover = new Rover(new Coordinate(0, 4), Direction.North, plateau);
 //        assertEquals(new Coordinate(0, 5), rover.move());
-//
-//    }
+        assertThrows(RoverDeadException.class, rover::move);
+    }
 
+//
 
     @Nested
     class DirectionTest {
