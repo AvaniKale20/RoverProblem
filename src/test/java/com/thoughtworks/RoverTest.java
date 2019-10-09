@@ -7,31 +7,38 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RoverTest {
+    private Coordinate getOrigin() {
+        return new Coordinate(0, 0);
+    }
+    private Coordinate getFourFour()
+    {
+        return new Coordinate(4,4);
+    }
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInNorthDirection() throws Exception {
-        Plateau plateau = new Plateau(new Coordinate(0, 0), new Coordinate(4, 4));
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.North, plateau);
         assertEquals(new Coordinate(0, 1), rover.move());
     }
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() throws Exception {
-        Plateau plateau = new Plateau(new Coordinate(0, 0), new Coordinate(4, 4));
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.South, plateau);
         assertEquals(new Coordinate(0, -1), rover.move());
     }
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() throws Exception {
-        Plateau plateau = new Plateau(new Coordinate(0, 0), new Coordinate(4, 4));
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.West, plateau);
         assertEquals(new Coordinate(-1, 0), rover.move());
     }
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws RoverDeadException {
-        Plateau plateau = new Plateau(new Coordinate(0, 0), new Coordinate(4, 4));
+        Plateau plateau = new Plateau(getOrigin(),getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.East, plateau);
         assertEquals(new Coordinate(1, 0), rover.move());
     }
@@ -39,7 +46,7 @@ public class RoverTest {
     //////
     @Test
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInNorthDirection() throws RoverDeadException {
-        Plateau plateau = new Plateau(new Coordinate(0, 0), new Coordinate(4, 4));
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 1), Direction.North, plateau);
         assertEquals(new Coordinate(0, 2), rover.move());
 
@@ -47,7 +54,7 @@ public class RoverTest {
 
     @Test
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws RoverDeadException {
-        Plateau plateau = new Plateau(new Coordinate(0, 0), new Coordinate(4, 4));
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 0), Direction.East, plateau);
         assertEquals(new Coordinate(2, 0), rover.move());
 
@@ -55,7 +62,7 @@ public class RoverTest {
 
     @Test
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() throws RoverDeadException {
-        Plateau plateau = new Plateau(new Coordinate(0, 0), new Coordinate(4, 4));
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, -2), Direction.South, plateau);
         assertEquals(new Coordinate(0, -3), rover.move());
 
@@ -63,7 +70,7 @@ public class RoverTest {
 
     @Test
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() throws RoverDeadException {
-        Plateau plateau = new Plateau(new Coordinate(0, 0), new Coordinate(4, 4));
+        Plateau plateau = new Plateau(getOrigin(),getFourFour());
         Rover rover = new Rover(new Coordinate(1, 0), Direction.West, plateau);
         assertEquals(new Coordinate(0, 0), rover.move());
 
@@ -72,10 +79,6 @@ public class RoverTest {
 
     @Nested
     class DirectionTest {
-
-        private Coordinate getOrigin() {
-            return new Coordinate(0, 0);
-        }
 
         private Direction getRoverFacingNorth() {
             return Direction.North;

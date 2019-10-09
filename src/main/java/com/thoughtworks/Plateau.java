@@ -1,8 +1,5 @@
 package com.thoughtworks;
 
-
-import com.thoughtworks.exception.RoverDeadException;
-
 public class Plateau {
     private Coordinate origin;
     private Coordinate end;
