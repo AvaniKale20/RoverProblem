@@ -18,10 +18,11 @@ public class Rover {
         this.direction = direction;
         this.coordinate = coordinate;
     }
-    public Coordinate move() throws RoverDeadException {
+
+    public Coordinate move(Direction direction) throws RoverDeadException {
         Coordinate newCoordinate = coordinate.move(direction);
         this.coordinate = newCoordinate;
-        if (plateau.hasOutOfBound(newCoordinate) || isDead) {
+        if (plateau.hasOutOfBound(newCoordinate) || isDead) {//|| isDead
             isDead = true;
             throw new RoverDeadException();
         }
