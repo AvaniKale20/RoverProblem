@@ -2,14 +2,11 @@ package com.thoughtworks;
 
 import com.thoughtworks.exception.RoverDeadException;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Rover {
     private Direction direction;
     private Coordinate coordinate;
     private Plateau plateau;
-    private boolean isDead = false;
+    private boolean isDead = false;//no
 
     public Rover(Coordinate coordinate, Direction direction, Plateau plateau) {
         this.direction = direction;
@@ -23,11 +20,13 @@ public class Rover {
     }
     public Coordinate move() throws RoverDeadException {
         Coordinate newCoordinate = coordinate.move(direction);
-        if (plateau.hasOutOfBound(newCoordinate)) {
+        this.coordinate = newCoordinate;
+        if (plateau.hasOutOfBound(newCoordinate) || isDead) {
             isDead = true;
             throw new RoverDeadException();
         }
-        return coordinate.move(direction);
+        return this.coordinate = newCoordinate;
+
     }
 
     public Direction turnLeft() throws RoverDeadException {

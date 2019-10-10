@@ -4,8 +4,7 @@ import com.thoughtworks.exception.RoverDeadException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RoverTest {
     private Coordinate getOrigin() {
@@ -35,7 +34,8 @@ public class RoverTest {
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.West, plateau);
-        assertEquals(new Coordinate(-1, 0), rover.move());
+        rover.move();
+        assertEquals(new Coordinate(-2, 0), rover.move());
     }
 
     @Test
@@ -91,7 +91,15 @@ public class RoverTest {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 1), Direction.North, plateau);
         assertEquals(new Coordinate(1, 2), rover.move());
+    }
 
+    //is without dead test
+    @Test
+    void givenRover_WhenMove_ThenMove() throws RoverDeadException {
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
+        Rover rover = new Rover(new Coordinate(1, 4), Direction.North, plateau);
+        assertThrows(RoverDeadException.class, () -> rover.move());
+        assertThrows(RoverDeadException.class, () -> rover.move());
     }
 
 }

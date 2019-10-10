@@ -3,7 +3,7 @@ package com.thoughtworks;
 public class Plateau {
     private Coordinate origin;
     private Coordinate end;
-    private Rover rover;
+//    private Rover rover;
 
     public Plateau(Coordinate origin, Coordinate end) {
         this.origin = origin;
