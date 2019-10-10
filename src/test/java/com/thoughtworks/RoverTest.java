@@ -219,6 +219,7 @@ class DirectionTest {
         assertEquals(new Coordinate(1, 0), rover.move());
 
     }
+
     @Test
     void givenRoverFacingAtNorthDirection_WhenTurnLeft_ThenShouldBeAbleToTurnSouth() throws RoverDeadException {
         Rover rover = new Rover(new Coordinate(1, 1), getRoverFacingNorth(), new Plateau(getOrigin(), getFourFour()));
@@ -228,5 +229,18 @@ class DirectionTest {
 
     }
 
+    @Test
+    void givenRoverFacingAtNorthDirection_WhenMove_ThenShouldMove() throws RoverDeadException {
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
+        Rover rover = new Rover(new Coordinate(0, 1), Direction.North, plateau);
+        rover.move();
+        rover.move();
+        assertEquals(new Coordinate(0, 4), rover.move());
+        rover.turnLeft();
+        assertEquals(new Coordinate(-1, 4), rover.move());
+        rover.turnLeft();
+        assertEquals(new Coordinate(-1, 3), rover.move());
+
+    }
 }
 
