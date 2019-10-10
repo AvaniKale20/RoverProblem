@@ -10,12 +10,12 @@ public enum Direction {
 
         @Override
         Direction moveLeft() {
-            return West;
+            return  West;
         }
 
         @Override
         Direction moveRight() {
-            return East;
+            return Direction.East;
         }
     }, South {
         @Override
@@ -25,12 +25,12 @@ public enum Direction {
 
         @Override
         Direction moveLeft() {
-            return East;
+            return Direction.East;
         }
 
         @Override
         Direction moveRight() {
-            return West;
+            return Direction.West;
         }
     }, West {
         @Override
@@ -40,12 +40,12 @@ public enum Direction {
 
         @Override
         Direction moveLeft() {
-            return South;
+            return Direction.South;
         }
 
         @Override
         Direction moveRight() {
-            return North;
+            return Direction.North;
         }
     }, East {
         @Override
@@ -55,12 +55,12 @@ public enum Direction {
 
         @Override
         Direction moveLeft() {
-            return North;
+            return Direction.North;
         }
 
         @Override
         Direction moveRight() {
-            return South;
+            return Direction.South;
         }
     };
 

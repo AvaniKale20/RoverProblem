@@ -20,29 +20,29 @@ public class RoverTest {
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInNorthDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.North, plateau);
-        assertEquals(new Coordinate(0, 1), rover.move(Direction.North));
+        assertEquals(new Coordinate(0, 1), rover.move());
     }
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.South, plateau);
-        assertEquals(new Coordinate(0, -1), rover.move(Direction.South));
+        assertEquals(new Coordinate(0, -1), rover.move());
     }
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.West, plateau);
-        rover.move(Direction.West);
-        assertEquals(new Coordinate(-2, 0), rover.move(Direction.West));
+        rover.move();
+        assertEquals(new Coordinate(-2, 0), rover.move());
     }
 
     @Test
     void givenRover_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws RoverDeadException {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.East, plateau);
-        assertEquals(new Coordinate(1, 0), rover.move(Direction.East));
+        assertEquals(new Coordinate(1, 0), rover.move());
     }
 
     //////
@@ -50,7 +50,7 @@ public class RoverTest {
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInNorthDirection() throws RoverDeadException {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 1), Direction.North, plateau);
-        assertEquals(new Coordinate(0, 2), rover.move(Direction.North));
+        assertEquals(new Coordinate(0, 2), rover.move());
 
     }
 
@@ -58,7 +58,7 @@ public class RoverTest {
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws RoverDeadException {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 0), Direction.East, plateau);
-        assertEquals(new Coordinate(2, 0), rover.move(Direction.East));
+        assertEquals(new Coordinate(2, 0), rover.move());
 
     }
 
@@ -66,7 +66,7 @@ public class RoverTest {
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() throws RoverDeadException {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, -2), Direction.South, plateau);
-        assertEquals(new Coordinate(0, -3), rover.move(Direction.South));
+        assertEquals(new Coordinate(0, -3), rover.move());
 
     }
 
@@ -74,7 +74,7 @@ public class RoverTest {
     void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() throws RoverDeadException {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 0), Direction.West, plateau);
-        assertEquals(new Coordinate(0, 0), rover.move(Direction.West));
+        assertEquals(new Coordinate(0, 0), rover.move());
 
     }
 
@@ -83,14 +83,14 @@ public class RoverTest {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 4), Direction.North, plateau);
 //        assertEquals(new Coordinate(0, 5), rover.move());
-        assertThrows(RoverDeadException.class, () -> rover.move(Direction.North));
+        assertThrows(RoverDeadException.class, () -> rover.move());
     }
 
     @Test
     void givenRoverWithOneXCoordinateAndOneYCoordinate_WhenMove_ThenShouldReturnFalse() throws RoverDeadException {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 1), Direction.North, plateau);
-        assertEquals(new Coordinate(1, 2), rover.move(Direction.North));
+        assertEquals(new Coordinate(1, 2), rover.move());
     }
 
     //is without dead test
@@ -98,26 +98,36 @@ public class RoverTest {
     void givenRover_WhenMove_ThenMove() throws RoverDeadException {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 4), Direction.North, plateau);
-        assertThrows(RoverDeadException.class, () -> rover.move(Direction.North));
-        assertThrows(RoverDeadException.class, () -> rover.move(Direction.North));
+        assertThrows(RoverDeadException.class, () -> rover.move());
+        assertThrows(RoverDeadException.class, () -> rover.move());
         //1st
     }
 
-    //wrong test case
-//    @Test
-//    void givenRover_WhenMove_ThenMove1() throws RoverDeadException {
-//        Plateau plateau = new Plateau(getOrigin(), getFourFour());
-//        Rover rover = new Rover(new Coordinate(1, 4), Direction.North, plateau);
-//        assertThrows(RoverDeadException.class, () -> rover.move(Direction.North));
-//        assertThrows(RoverDeadException.class, () -> rover.move(Direction.East));
-//    }
+    //wrong test case?
     @Test
-    void givenDeadRover_WhenMove_ThenThrowException() throws RoverDeadException {
+    void givenRover_WhenMove_ThenMove1() throws RoverDeadException {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 4), Direction.North, plateau);
-        assertThrows(RoverDeadException.class, () -> rover.move(Direction.North));
-        assertThrows(RoverDeadException.class, () -> rover.move(Direction.South));
-        //error at 119 does not throw any exception
+        assertThrows(RoverDeadException.class, () -> rover.move());
+//        assertEquals(new Coordinate(2,5),rover.move());
+        assertThrows(RoverDeadException.class, () -> rover.move());
+    }
+
+    @Test
+    void givenDeadRoverFacingAtNorth_WhenMove_ThenThrowException() throws RoverDeadException {
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
+        Rover rover = new Rover(new Coordinate(1, 4), Direction.North, plateau);
+        assertThrows(RoverDeadException.class, () -> rover.move());
+        assertThrows(RoverDeadException.class, () -> rover.move());
+        //error at 119 does not throw any exception(in rover
+    }
+
+    @Test
+    void givenDeadRoverFacingAtEast_WhenMove_ThenThrowException() throws RoverDeadException {
+        Plateau plateau = new Plateau(getOrigin(), getFourFour());
+        Rover rover = new Rover(new Coordinate(4, 1), Direction.East, plateau);
+        assertThrows(RoverDeadException.class, () -> rover.move());
+        assertThrows(RoverDeadException.class, () -> rover.move());
     }
 
 }
@@ -202,24 +212,14 @@ class DirectionTest {
     }
 
     @Test
-    void givenRoverFacingAtNorthDirection_WhenTurnRight_ThenTurnEast() {
-        Plateau plateau = new Plateau(getOrigin(), getFourFour());
-        Rover rover = new Rover(new Coordinate(0, 4), Direction.North, plateau);
-        assertThrows(RoverDeadException.class, () -> rover.move(Direction.North));
+    void givenRover_WhenTurnRight_ThenShouldBeAbleToTurnSouth() throws RoverDeadException {
+        Rover rover = new Rover(new Coordinate(1, 1), getRoverFacingNorth(), new Plateau(getOrigin(), getFourFour()));
+        rover.turnRight();
+        rover.turnRight();
+        assertEquals(new Coordinate(1, 0), rover.move());
 
-        assertThrows(RoverDeadException.class, rover::turnRight);
-//    assertEquals(Direction.East, rover.turnRight());
     }
 
-    @Test
-    void givenRoverFacingAtEastDirection_WhenTurnLeft_ThenTurnNorth() throws RoverDeadException {
-        Plateau plateau = new Plateau(getOrigin(), getFourFour());
-        Rover rover = new Rover(new Coordinate(0, 4), Direction.North, plateau);
-        assertThrows(RoverDeadException.class, () -> rover.move(Direction.North));
-
-        assertThrows(RoverDeadException.class, rover::turnRight);
-//    assertEquals(Direction.North, rover.turnLeft());
-    }
 
 }
 

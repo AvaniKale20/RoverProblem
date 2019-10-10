@@ -19,14 +19,14 @@ public class Rover {
         this.coordinate = coordinate;
     }
 
-    public Coordinate move(Direction direction) throws RoverDeadException {
+    public Coordinate move() throws RoverDeadException {
         Coordinate newCoordinate = coordinate.move(direction);
         this.coordinate = newCoordinate;
-        if (plateau.hasOutOfBound(newCoordinate) || isDead) {//|| isDead
+        if (plateau.hasOutOfBound(newCoordinate)) {
             isDead = true;
             throw new RoverDeadException();
         }
-        return this.coordinate = newCoordinate;
+        return newCoordinate;
 
     }
 
@@ -34,7 +34,8 @@ public class Rover {
         if (isDead) {
             throw new RoverDeadException();
         }
-        return direction.moveLeft();
+        direction = direction.moveLeft();
+        return direction;
     }
 
 
@@ -42,7 +43,8 @@ public class Rover {
         if (isDead) {
             throw new RoverDeadException();
         }
-        return direction.moveRight();
+        direction = direction.moveRight();
+        return direction;
     }
 
 }
