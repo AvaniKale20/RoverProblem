@@ -5,9 +5,9 @@ public class Coordinate {
     protected int xCoordinate;
     protected int yCoordinate;
 
-    public Coordinate(int x_Coordinate, int y_Coordinate) {
-        this.yCoordinate = y_Coordinate;
-        this.xCoordinate = x_Coordinate;
+    public Coordinate(int xCoordinate, int yCoordinate) {
+        this.yCoordinate = yCoordinate;
+        this.xCoordinate = xCoordinate;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Coordinate {
     }
 
     //Addition
-    public Coordinate move(Direction direction) {
+    public Coordinate moveForwards(Direction direction) {
         return new Coordinate(xCoordinate + direction.move().xCoordinate, yCoordinate + direction.move().yCoordinate);
     }
 
@@ -59,5 +59,8 @@ public class Coordinate {
         return origin.xCoordinate < xCoordinate && xCoordinate > end.xCoordinate;
     }
 
+    boolean isEqual(Coordinate coordinate, Coordinate end) {
+        return (coordinate.xCoordinate == end.xCoordinate && coordinate.yCoordinate == end.yCoordinate);
+    }
 
 }

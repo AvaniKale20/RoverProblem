@@ -1,6 +1,8 @@
 package com.thoughtworks;
 
 import com.thoughtworks.exception.RoverDeadException;
+import com.thoughtworks.exception.RoverNotAllowToGoForward;
+
 
 public class Rover {
     private Direction direction;
@@ -19,15 +21,22 @@ public class Rover {
         this.coordinate = coordinate;
     }
 
-    public Coordinate move() throws RoverDeadException {
-        Coordinate newCoordinate = coordinate.move(direction);
-        this.coordinate = newCoordinate;
+    public Coordinate move() throws Exception {
+        Coordinate newCoordinate = coordinate.moveForwards(direction);
+        shouldNotAbleToMove();
         if (plateau.hasOutOfBound(newCoordinate)) {
             isDead = true;
             throw new RoverDeadException();
         }
+        this.coordinate = newCoordinate;
         return newCoordinate;
+    }
 
+    public boolean shouldNotAbleToMove() throws Exception {
+        if (plateau.hasEqual(coordinate)) {
+            throw new RoverNotAllowToGoForward();
+        }
+        return false;
     }
 
     public Direction turnLeft() throws RoverDeadException {
@@ -46,7 +55,6 @@ public class Rover {
         direction = direction.moveRight();
         return direction;
     }
-
 }
 
 

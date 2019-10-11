@@ -4,6 +4,9 @@ import com.thoughtworks.exception.RoverDeadException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RoverTest {
@@ -39,7 +42,7 @@ public class RoverTest {
     }
 
     @Test
-    void givenRover_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws RoverDeadException {
+    void givenRover_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 0), Direction.East, plateau);
         assertEquals(new Coordinate(1, 0), rover.move());
@@ -47,7 +50,7 @@ public class RoverTest {
 
     //////
     @Test
-    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInNorthDirection() throws RoverDeadException {
+    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInNorthDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 1), Direction.North, plateau);
         assertEquals(new Coordinate(0, 2), rover.move());
@@ -55,7 +58,7 @@ public class RoverTest {
     }
 
     @Test
-    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws RoverDeadException {
+    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInEastDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 0), Direction.East, plateau);
         assertEquals(new Coordinate(2, 0), rover.move());
@@ -63,7 +66,7 @@ public class RoverTest {
     }
 
     @Test
-    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() throws RoverDeadException {
+    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInSouthDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, -2), Direction.South, plateau);
         assertEquals(new Coordinate(0, -3), rover.move());
@@ -71,7 +74,7 @@ public class RoverTest {
     }
 
     @Test
-    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() throws RoverDeadException {
+    void givenRoverStartingSomewhereElse_WhenMove_ThenShouldAbleMoveOneStepInWestDirection() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 0), Direction.West, plateau);
         assertEquals(new Coordinate(0, 0), rover.move());
@@ -87,7 +90,7 @@ public class RoverTest {
     }
 
     @Test
-    void givenRoverWithOneXCoordinateAndOneYCoordinate_WhenMove_ThenShouldReturnFalse() throws RoverDeadException {
+    void givenRoverWithOneXCoordinateAndOneYCoordinate_WhenMove_ThenShouldReturnFalse() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(1, 1), Direction.North, plateau);
         assertEquals(new Coordinate(1, 2), rover.move());
@@ -212,7 +215,7 @@ class DirectionTest {
     }
 
     @Test
-    void givenRover_WhenTurnRight_ThenShouldBeAbleToTurnSouth() throws RoverDeadException {
+    void givenRover_WhenTurnRight_ThenShouldBeAbleToTurnSouth() throws Exception {
         Rover rover = new Rover(new Coordinate(1, 1), getRoverFacingNorth(), new Plateau(getOrigin(), getFourFour()));
         rover.turnRight();
         rover.turnRight();
@@ -221,7 +224,7 @@ class DirectionTest {
     }
 
     @Test
-    void givenRoverFacingAtNorthDirection_WhenTurnLeft_ThenShouldBeAbleToTurnSouth() throws RoverDeadException {
+    void givenRoverFacingAtNorthDirection_WhenTurnLeft_ThenShouldBeAbleToTurnSouth() throws Exception {
         Rover rover = new Rover(new Coordinate(1, 1), getRoverFacingNorth(), new Plateau(getOrigin(), getFourFour()));
         rover.turnLeft();
         rover.turnLeft();
@@ -230,7 +233,7 @@ class DirectionTest {
     }
 
     @Test
-    void givenRoverFacingAtNorthDirection_WhenMove_ThenShouldMove() throws RoverDeadException {
+    void givenRoverFacingAtNorthDirection_WhenMove_ThenShouldMove() throws Exception {
         Plateau plateau = new Plateau(getOrigin(), getFourFour());
         Rover rover = new Rover(new Coordinate(0, 1), Direction.North, plateau);
         rover.move();
@@ -241,6 +244,31 @@ class DirectionTest {
         rover.turnLeft();
         assertEquals(new Coordinate(-1, 3), rover.move());
 
+    }
+
+    @Nested
+    class Rovers {
+
+
+//        @Test
+//        void givenOneRover_WhenAdd_ThenShouldAddInList() {
+//            Plateau plateau = new Plateau(getOrigin(), getFourFour());
+//            List<Rover> roverList = new ArrayList<>();
+//            Rover roverOne = new Rover(new Coordinate(0, 1), Direction.South, plateau);
+//            roverList.add(roverOne);
+//            assertTrue(roverOne.add());
+//        }
+//
+//        @Test
+//        void givenOneRoverAndTwoRover_WhenAdd_ThenShouldAddInList() {
+//            Plateau plateau = new Plateau(getOrigin(), getFourFour());
+//            List<Rover> roverList = new ArrayList<>();
+//            Rover roverOne = new Rover(new Coordinate(0, 1), Direction.South, plateau);
+//            Rover roverTwo = new Rover(new Coordinate(1, 0), Direction.South, plateau);
+//            roverList.add(roverOne);
+//            roverList.add(roverTwo);
+//            assertTrue(roverOne.add());
+       // }
     }
 }
 
